@@ -3,13 +3,20 @@ using System.Collections.Generic;
 
 public interface IWojownik
 {
-    string Imie { get; }
+    string Imie 
+    {
+        get;
+    }
     void Pokaz();
 }
 
 public class Piechur : IWojownik
 {
-    public string Imie { get; private set; }
+    public string Imie
+    { 
+    get; 
+    private set;
+    }
 
     public Piechur(string imie)
     {
@@ -24,7 +31,11 @@ public class Piechur : IWojownik
 
 public class Strzelec : IWojownik
 {
-    public string Imie { get; private set; }
+    public string Imie 
+    { 
+    get; 
+    private set;
+    }
 
     public Strzelec(string imie)
     {
@@ -39,7 +50,11 @@ public class Strzelec : IWojownik
 
 public class Konny : IWojownik
 {
-    public string Imie { get; private set; }
+    public string Imie
+    { 
+    get; 
+    private set; 
+    }
 
     public Konny(string imie)
     {
