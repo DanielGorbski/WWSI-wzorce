@@ -36,7 +36,7 @@ namespace SingletonVault
     {
         byte[] key = new byte[size];
         Random random = new Random();
-        random.NextBytes(key); // Wypełnienie tablicy pseudolosowymi bajtami
+        random.NextBytes(key); 
         return key;
     }
     class Program
@@ -48,7 +48,6 @@ namespace SingletonVault
 
             // Generowanie klucza
             byte[] key = GeneratePseudoRandomKey(keySize);
-
 
 
             Vault vault1 = Vault.GetInstance();
