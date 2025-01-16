@@ -1,10 +1,12 @@
-﻿
+﻿using System;
+
 public interface IEmployee
 {
-    void Work();
-    void AttendMeeting();
+    string Name { get; set; }
+    string Position { get; set; }
+    void Work(); 
+    void AttendMeeting(); 
 }
-
 
 public class Employee : IEmployee
 {
@@ -13,50 +15,59 @@ public class Employee : IEmployee
 
     public void Work()
     {
-        /* Implementacja */
+        Console.WriteLine($"{Name} pracuje.");
     }
 
     public void AttendMeeting()
     {
-        /* Implementacja */
+        Console.WriteLine($"{Name} uczestniczy w spotkaniu.");
     }
 }
-
 
 public class Manager : IEmployee
 {
     public string Name { get; set; }
     public string Position { get; set; }
 
-  
     public void Work()
     {
-        /* Implementacja dla managera */
+        Console.WriteLine($"{Name}, kierownik, pracuje nad strategią zespołu.");
     }
 
     public void AttendMeeting()
     {
-        /* Implementacja dla managera */
+
+        Console.WriteLine($"{Name}, kierownik, uczestniczy w spotkaniu zarządu.");
     }
 
     public void ManageTeam()
     {
-        /* Implementacja */
+
+        Console.WriteLine($"{Name} zarządza zespołem.");
     }
 }
 
-
-class Program
+public class Program
 {
-    static void Main(string[] args)
+    public static void Main(string[] args)
     {
-        IEmployee employee = new Employee();
-        employee.Work();
-        employee.AttendMeeting();
 
-        Manager manager = new Manager();
-        manager.Work();
-        manager.AttendMeeting();
-        manager.ManageTeam();
+        IEmployee pracownik = new Employee
+        {
+            Name = "Jan Kowalski",
+            Position = "Programista"
+        };
+        pracownik.Work(); 
+        pracownik.AttendMeeting(); 
+
+        
+        Manager kierownik = new Manager
+        {
+            Name = "Anna Nowak",
+            Position = "Kierownik Projektu"
+        };
+        kierownik.Work(); 
+        kierownik.AttendMeeting(); 
+        kierownik.ManageTeam();
     }
 }
