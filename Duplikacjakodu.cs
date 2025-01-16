@@ -1,38 +1,28 @@
-﻿public class Logger
-{
-
-    private string FormatLogMessage(string logLevel, string message, DateTime timestamp)
-    {
-        string formattedTimestamp = timestamp.ToString("yyyy-MM-dd HH:mm:ss");
-        return $"{logLevel}: [{formattedTimestamp}] {message}";
-    }
-
-
-    public void LogError(string message, DateTime timestamp)
-    {
-        string formattedMessage = FormatLogMessage("ERROR", message, timestamp);
-        Console.WriteLine(formattedMessage);
-    }
-
-
-    public void LogWarning(string message, DateTime timestamp)
-    {
-        string formattedMessage = FormatLogMessage("WARNING", message, timestamp);
-        Console.WriteLine(formattedMessage);
-    }
-}
+﻿using System;
 
 class Program
 {
     static void Main(string[] args)
     {
-       
+        LogError("An error occurred while processing the request", DateTime.Now);
+        LogWarning("This action might lead to data loss", DateTime.Now);
+    }
 
-        var logger = new Logger();
+    public static void LogError(string message, DateTime timestamp)
+    {
+        string formattedMessage = FormatLogMessage("ERROR", message, timestamp);
+        Console.WriteLine(formattedMessage);
+    }
 
+    public static void LogWarning(string message, DateTime timestamp)
+    {
+        string formattedMessage = FormatLogMessage("WARNING", message, timestamp);
+        Console.WriteLine(formattedMessage);
+    }
 
-        logger.LogError("This is an error message", DateTime.Now);
-        logger.LogWarning("This is a warning message", DateTime.Now);
-
+    private static string FormatLogMessage(string logType, string message, DateTime timestamp)
+    {
+        string formattedTimestamp = timestamp.ToString("yyyy-MM-dd HH:mm:ss");
+        return $"{logType}: {formattedTimestamp} - {message}";
     }
 }
