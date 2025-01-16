@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿uusing System;
 
 public class Car
 {
@@ -8,10 +7,11 @@ public class Car
         return new Engine();
     }
 
-    
     public string GetCylinderSize()
     {
-        return GetEngine().GetCylinder().GetSize();
+        Engine engine = GetEngine();
+        Cylinder cylinder = engine.GetCylinder();
+        return cylinder.GetSize();
     }
 }
 
@@ -31,14 +31,13 @@ public class Cylinder
     }
 }
 
-class Program
+public class Program
 {
-    static void Main(string[] args)
+    public static void Main(string[] args)
     {
-      
-       
-        Car car2 = new Car();
-        string newWay = car2.GetCylinderSize();
-        Console.WriteLine($"Rozmiar cylindra (nowa metoda): {newWay}");
+        Car car = new Car();
+        string cylinderSize = car.GetCylinderSize();
+
+        Console.WriteLine($"Cylinder Size: {cylinderSize}");
     }
 }
