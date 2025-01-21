@@ -14,7 +14,6 @@ public class Adult
         return age;
     }
 }
-
 public class Validator
 {
     public bool IsAdult(Adult person)
